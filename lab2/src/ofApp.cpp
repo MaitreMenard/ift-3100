@@ -2,22 +2,26 @@
 
 void ofApp::setup()
 {
+    ofSetWindowTitle("Laboratoire 2");
 
+    renderer.setup();
+
+    ofLog() << "<app::setup>";
 }
 
 void ofApp::update()
 {
-
+    renderer.update();
 }
 
 void ofApp::draw()
 {
-
+    renderer.draw();
 }
 
 void ofApp::exit()
 {
-
+    ofLog() << "<app::exit>";
 }
 
 void ofApp::keyPressed(int key)
