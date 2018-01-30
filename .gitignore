@@ -1,0 +1,15 @@
+### OpenFrameworks ###
+# ignore generated binaries
+# but not the data folder
+/bin/*
+!/bin/data/
+
+# User-specific files
+*.user
+
+# Visual C++ cache files
+*.ncb
+*.opendb
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
