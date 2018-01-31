@@ -1,12 +1,25 @@
 #include "renderer.h"
 
+Renderer::Renderer()
+{
+    imageWidth = 256;
+    imageHeight = 256;
+    horizontalOffset = 32;
+    verticalOffset = 32;
+}
+
 void Renderer::setup()
 {
     ofSetFrameRate(60);
 
-    image.load("ride-the-lightning.jpg");
+    for (int i = 0; i < 9; i++)
+    {
+        images[i].load("ride-the-lightning.jpg");
+    }
 
-    ofSetWindowShape(image.getWidth(), image.getHeight());
+    float windowWidth = 3 * imageWidth + 4 * horizontalOffset;
+    float windowheight = 3 * imageHeight + 4 * verticalOffset;
+    ofSetWindowShape(windowWidth, windowheight);
 }
 
 void Renderer::update()
@@ -20,5 +33,13 @@ void Renderer::draw()
 
     ofSetColor(255);
 
-    image.draw(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
+    for (int j = 0; j < 3; j++)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            int x = (i + 1) * horizontalOffset + i * imageWidth;
+            int y = (j + 1) * verticalOffset + j * imageHeight;
+            images[j*3+i].draw(x, y, imageWidth, imageHeight);
+        }
+    }
 }
