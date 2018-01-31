@@ -3,19 +3,22 @@
 void Renderer::setup()
 {
     ofSetFrameRate(60);
+
+    image.load("ride-the-lightning.jpg");
+
+    ofSetWindowShape(image.getWidth(), image.getHeight());
 }
 
 void Renderer::update()
 {
-    time_current = ofGetElapsedTimef();
-    time_elapsed = time_current - time_last;
-    time_last = time_current;
 
-    ofLog() << std::setprecision(2) << "<frame: " << ofGetFrameNum() << " time current: " << time_current << " time elapsed: " <<
-        time_elapsed << " fps: " << 1.0 / time_elapsed << ">";
 }
 
 void Renderer::draw()
 {
-    ofClear(ofGetFrameNum() % 255);
+    ofClear(0);
+
+    ofSetColor(255);
+
+    image.draw(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
 }

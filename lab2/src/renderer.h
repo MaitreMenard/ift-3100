@@ -5,9 +5,8 @@
 class Renderer
 {
 private:
-    float time_current;
-    float time_last;
-    float time_elapsed;
+    ofImage image;
+
 public:
     void setup();
     void update();

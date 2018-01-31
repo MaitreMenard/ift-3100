@@ -66,7 +66,7 @@ void ofApp::mouseExited(int x, int y)
 
 void ofApp::windowResized(int w, int h)
 {
-
+    ofLog() << "<app::windowResized to: (" << w << ", " << h << ")>";
 }
 
 void ofApp::gotMessage(ofMessage msg)
