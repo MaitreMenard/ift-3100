@@ -12,10 +12,15 @@ void Renderer::setup()
 {
     ofSetFrameRate(60);
 
-    for (int i = 0; i < 9; i++)
-    {
-        images[i].load("ride-the-lightning.jpg");
-    }
+    images[0].load("darude.jpg");
+    images[1].load("smash-mouth.jpg");
+    images[2].load("darude.jpg");
+    images[3].load("smash-mouth.jpg");
+    images[4].load("rick-astley.jpg");
+    images[5].load("smash-mouth.jpg");
+    images[6].load("darude.jpg");
+    images[7].load("smash-mouth.jpg");
+    images[8].load("darude.jpg");
 
     float windowWidth = 3 * imageWidth + 4 * horizontalOffset;
     float windowheight = 3 * imageHeight + 4 * verticalOffset;
