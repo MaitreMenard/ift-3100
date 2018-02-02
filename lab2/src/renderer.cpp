@@ -48,3 +48,14 @@ void Renderer::draw()
         }
     }
 }
+
+void Renderer::screenShot(const string fileName)
+{
+    ofImage image;
+
+    image.grabScreen(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
+
+    image.save(fileName);
+
+    ofLog() << "<image saved to: bin/data/" << fileName;
+}

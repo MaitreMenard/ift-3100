@@ -16,4 +16,5 @@ public:
     void setup();
     void update();
     void draw();
+    void screenShot(const string fileName);
 };

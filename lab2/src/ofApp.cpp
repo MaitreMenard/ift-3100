@@ -21,6 +21,8 @@ void ofApp::draw()
 
 void ofApp::exit()
 {
+    // The screenshot is saved in /bin instead of /bin/data to prevent git from tracking it.
+    renderer.screenShot("../result.png");
     ofLog() << "<app::exit>";
 }
 
