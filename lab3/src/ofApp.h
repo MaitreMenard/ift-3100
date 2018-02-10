@@ -4,6 +4,8 @@
 
 class ofApp : public ofBaseApp
 {
+private:
+    ofTrueTypeFont ironFont;
 
 public:
     void setup();
