@@ -1,11 +1,12 @@
 #pragma once
 
 #include "ofMain.h"
+#include "renderer.h"
 
 class ofApp : public ofBaseApp
 {
 private:
-    ofTrueTypeFont ironFont;
+    Renderer renderer;
 
 public:
     void setup();

@@ -3,8 +3,8 @@ Porygon
 Colours
 Dark cyan: 	(83, 141, 144)
 Light cyan: 	(127, 191, 195)
-Light pink:		(216, 109, 110)
-Dark pink:		(245, 152, 163)
+Light pink:	(216, 109, 110)
+Dark pink:	(245, 152, 163)
 
 Tail
 131, 2
