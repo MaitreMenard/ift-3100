@@ -1,5 +1,15 @@
 #include "porygon.h"
 
+Porygon::Porygon()
+{
+    lineWidth = 2;
+
+    lightPink = ofColor(245, 152, 163);
+    darkPink = ofColor(216, 109, 110);
+    lightCyan = ofColor(127, 191, 195);
+    darkCyan = ofColor(83, 141, 144);
+}
+
 void Porygon::draw()
 {
     drawTail();
@@ -9,298 +19,119 @@ void Porygon::draw()
     drawHead();
 }
 
-void Porygon::drawTail()
+void drawPolygon(ofVec2f* vertices, int nbVertex)
 {
-    /*ofFill();
+    if (nbVertex == 3)
+    {
+        ofDrawTriangle(vertices[0].x, vertices[0].y, vertices[1].x, vertices[1].y, vertices[2].x, vertices[2].y);
+    }
+    else
+    {
+        ofBeginShape();
+        for (int i = 0; i < nbVertex; i++)
+        {
+            ofVertex(vertices[i].x, vertices[i].y);
+        }
+        ofVertex(vertices[0].x, vertices[0].y); //Close the polygon
+        ofEndShape();
+    }
+}
+
+void drawFramedPolygon(ofVec2f* vertices, int nbVertex, int borderWidth, ofColor fillColor)
+{
+    ofFill();
     ofSetLineWidth(0);
-    ofSetColor(127, 191, 195);
-    ofBeginShape();
-    ofVertex(131, 2);
-    ofVertex(163, 0);
-    ofVertex(284, 291);
-    ofVertex(192, 314);
-    ofVertex(131, 2);
-    ofEndShape();*/
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(131, 2);
-    ofVertex(163, 0);
-    ofVertex(284, 291);
-    ofVertex(192, 314);
-    ofVertex(131, 2);
-    ofEndShape();
+    ofSetColor(fillColor);
+    drawPolygon(vertices, nbVertex);
 
     ofNoFill();
-    ofSetLineWidth(2);
+    ofSetLineWidth(borderWidth);
     ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(131, 2);
-    ofVertex(111, 26);
-    ofVertex(143, 401);
-    ofVertex(192, 314);
-    ofVertex(131, 2);
-    ofEndShape();
+    drawPolygon(vertices, nbVertex);
+}
+
+void Porygon::drawTail()
+{
+    ofVec2f tailFace1[4] = { ofVec2f(131, 2), ofVec2f(163, 0), ofVec2f(284, 291), ofVec2f(192, 314) };
+    drawFramedPolygon(tailFace1, 4, lineWidth, lightCyan);
+
+    ofVec2f tailFace2[4] = { ofVec2f(131, 2), ofVec2f(111, 26), ofVec2f(143, 401), ofVec2f(192, 314) };
+    drawFramedPolygon(tailFace2, 4, lineWidth, darkCyan);
 }
 
 void Porygon::drawLeftLeg()
 {
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(536, 569);
-    ofVertex(543, 612);
-    ofVertex(521, 622);
-    ofVertex(501, 593);
-    ofVertex(536, 569);
-    ofEndShape();
+    ofVec2f leftLegFace1[4] = { ofVec2f(536, 569), ofVec2f(543, 612), ofVec2f(521, 622), ofVec2f(501, 593) };
+    drawFramedPolygon(leftLegFace1, 4, lineWidth, darkCyan);
 
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(543, 612);
-    ofVertex(619, 574);
-    ofVertex(596, 412);
-    ofVertex(512, 417);
-    ofVertex(543, 612);
-    ofEndShape();
+    ofVec2f leftLegFace2[4] = { ofVec2f(543, 612), ofVec2f(619, 574), ofVec2f(596, 412), ofVec2f(512, 417) };
+    drawFramedPolygon(leftLegFace2, 4, lineWidth, lightCyan);
 }
 
 void Porygon::drawBody()
 {
-    /*ofFill();
-    ofSetLineWidth(0);
-    ofSetColor(216, 109, 110);
-    ofBeginShape();
-    ofVertex(143, 401);
-    ofVertex(154, 352);
-    ofVertex(353, 581);
-    ofVertex(307, 668);
-    ofVertex(269, 622);
-    ofEndShape();*/
+    ofVec2f bodyFace1[5] = { ofVec2f(143, 401), ofVec2f(154, 352), ofVec2f(353, 581), ofVec2f(307, 668), ofVec2f(269, 622) };
+    drawFramedPolygon(bodyFace1, 5, lineWidth, darkPink);
 
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(143, 401);
-    ofVertex(154, 352);
-    ofVertex(353, 581);
-    ofVertex(307, 668);
-    ofVertex(269, 622);
-    ofEndShape();
+    ofVec2f bodyFace2[4] = { ofVec2f(353, 581), ofVec2f(307, 668), ofVec2f(455, 627), ofVec2f(587, 532) };
+    drawFramedPolygon(bodyFace2, 4, lineWidth, darkCyan);
 
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(353, 581);
-    ofVertex(307, 668);
-    ofVertex(455, 627);
-    ofVertex(587, 532);
-    ofVertex(353, 581);
-    ofEndShape();
+    ofVec2f bodyFace3[5] = { ofVec2f(353, 581), ofVec2f(154, 352), ofVec2f(216, 292), ofVec2f(398, 339), ofVec2f(326, 440) };
+    drawFramedPolygon(bodyFace3, 5, lineWidth, lightPink);
 
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(353, 581);
-    ofVertex(154, 352);
-    ofVertex(216, 292);
-    ofVertex(398, 339);
-    ofVertex(326, 440);
-    ofVertex(353, 581);
-    ofEndShape();
+    ofVec2f bodyFace4[3] = { ofVec2f(353, 581), ofVec2f(398, 339), ofVec2f(326, 440) };
+    drawFramedPolygon(bodyFace4, 3, lineWidth, lightCyan);
 
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(353, 581);
-    ofVertex(398, 339);
-    ofVertex(326, 440);
-    ofEndShape();
+    ofVec2f bodyFace5[3] = { ofVec2f(216, 292), ofVec2f(347, 289), ofVec2f(398, 339) };
+    drawFramedPolygon(bodyFace5, 3, lineWidth, lightPink);
 
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(216, 292);
-    ofVertex(347, 289);
-    ofVertex(398, 339);
-    ofEndShape();
-
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(353, 581);
-    ofVertex(398, 339);
-    ofVertex(468, 405);
-    ofVertex(547, 433);
-    ofVertex(587, 532);
-    ofVertex(353, 581);
-    ofEndShape();
+    ofVec2f bodyFace6[5] = { ofVec2f(353, 581), ofVec2f(398, 339), ofVec2f(468, 405), ofVec2f(547, 433), ofVec2f(587, 532) };
+    drawFramedPolygon(bodyFace6, 5, lineWidth, lightCyan);
 }
 
 void Porygon::drawRightLeg()
 {
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(99, 381);
-    ofVertex(234, 444);
-    ofVertex(103, 509);
-    ofVertex(3, 435);
-    ofVertex(99, 381);
-    ofEndShape();
+    ofVec2f rightLegFace1[4] = { ofVec2f(99, 381), ofVec2f(234, 444), ofVec2f(103, 509), ofVec2f(3, 435) };
+    drawFramedPolygon(rightLegFace1, 4, lineWidth, lightCyan);
 
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(234, 444);
-    ofVertex(280, 681);
-    ofVertex(163, 740);
-    ofVertex(103, 509);
-    ofVertex(234, 444);
-    ofEndShape();
+    ofVec2f rightLegFace2[4] = { ofVec2f(234, 444), ofVec2f(280, 681), ofVec2f(163, 740), ofVec2f(103, 509) };
+    drawFramedPolygon(rightLegFace2, 4, lineWidth, lightCyan);
 
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(3, 435);
-    ofVertex(103, 509);
-    ofVertex(163, 740);
-    ofVertex(147, 773);
-    ofVertex(0, 478);
-    ofVertex(3, 435);
-    ofEndShape();
+    ofVec2f rightLegFace3[5] = { ofVec2f(3, 435), ofVec2f(103, 509), ofVec2f(163, 740), ofVec2f(147, 773), ofVec2f(0, 478) };
+    drawFramedPolygon(rightLegFace3, 5, lineWidth, darkCyan);
 
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(163, 740);
-    ofVertex(280, 681);
-    ofVertex(257, 718);
-    ofVertex(147, 773);
-    ofVertex(163, 740);
-    ofEndShape();
+    ofVec2f rightLegFace4[4] = { ofVec2f(163, 740), ofVec2f(280, 681), ofVec2f(257, 718), ofVec2f(147, 773) };
+    drawFramedPolygon(rightLegFace4, 4, lineWidth, darkCyan);
 }
 
 void Porygon::drawHead()
 {
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(316, 176);
-    ofVertex(406, 209);
-    ofVertex(427, 284);
-    ofVertex(497, 289);
-    ofVertex(561, 368);
-    ofVertex(538, 430);
-    ofVertex(468, 405);
-    ofVertex(347, 288);
-    ofVertex(316, 176);
-    ofEndShape();
+    ofVec2f headFace1[8] = { ofVec2f(316, 176), ofVec2f(406, 209), ofVec2f(427, 284), ofVec2f(497, 289),
+        ofVec2f(561, 368), ofVec2f(538, 430), ofVec2f(468, 405), ofVec2f(347, 288) };
+    drawFramedPolygon(headFace1, 8, lineWidth, darkPink);
 
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(561, 368);
-    ofVertex(666, 476);
-    ofVertex(538, 430);
-    ofVertex(561, 368);
-    ofEndShape();
+    ofVec2f headFace2[3] = { ofVec2f(561, 368), ofVec2f(666, 476), ofVec2f(538, 430) };
+    drawFramedPolygon(headFace2, 3, lineWidth, darkCyan);
 
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(395, 68);
-    ofVertex(461, 167);
-    ofVertex(406, 209);
-    ofVertex(316, 176);
-    ofVertex(395, 68);
-    ofEndShape();
+    ofVec2f headFace3[4] = { ofVec2f(395, 68), ofVec2f(461, 167), ofVec2f(406, 209), ofVec2f(316, 176) };
+    drawFramedPolygon(headFace3, 4, lineWidth, lightPink);
 
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(530, 253);
-    ofVertex(590, 341);
-    ofVertex(561, 368);
-    ofVertex(497, 289);
-    ofVertex(530, 253);
-    ofEndShape();
+    ofVec2f headFace4[4] = { ofVec2f(530, 253), ofVec2f(590, 341), ofVec2f(561, 368), ofVec2f(497, 289) };
+    drawFramedPolygon(headFace4, 4, lineWidth, lightPink);
 
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(590, 341);
-    ofVertex(678, 461);
-    ofVertex(666, 476);
-    ofVertex(561, 368);
-    ofVertex(590, 341);
-    ofEndShape();
+    ofVec2f headFace5[4] = { ofVec2f(590, 341), ofVec2f(678, 461), ofVec2f(666, 476), ofVec2f(561, 368) };
+    drawFramedPolygon(headFace5, 4, lineWidth, lightCyan);
 
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(525, 46);
-    ofVertex(625, 136);
-    ofVertex(711, 313);
-    ofVertex(590, 341);
-    ofVertex(530, 253);
-    ofVertex(522, 173);
-    ofVertex(461, 167);
-    ofVertex(395, 68);
-    ofVertex(525, 46);
-    ofEndShape();
+    ofVec2f headFace6[8] = { ofVec2f(525, 46), ofVec2f(625, 136), ofVec2f(711, 313), ofVec2f(590, 341),
+        ofVec2f(530, 253), ofVec2f(522, 173), ofVec2f(461, 167), ofVec2f(395, 68) };
+    drawFramedPolygon(headFace6, 8, lineWidth, lightPink);
 
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(590, 341);
-    ofVertex(711, 313);
-    ofVertex(752, 441);
-    ofVertex(678, 461);
-    ofVertex(590, 341);
-    ofEndShape();
+    ofVec2f headFace7[4] = { ofVec2f(590, 341), ofVec2f(711, 313), ofVec2f(752, 441), ofVec2f(678, 461) };
+    drawFramedPolygon(headFace7, 4, lineWidth, lightCyan);
 
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(678, 461);
-    ofVertex(752, 441);
-    ofVertex(742, 452);
-    ofVertex(666, 476);
-    ofVertex(678, 461);
-    ofEndShape();
+    ofVec2f headFace8[4] = { ofVec2f(678, 461), ofVec2f(752, 441), ofVec2f(742, 452), ofVec2f(666, 476) };
+    drawFramedPolygon(headFace8, 4, lineWidth, lightCyan);
 
-    //Eye----------------------------------
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor(ofColor::black);
-    ofBeginShape();
-    ofVertex(462, 217);
-    ofVertex(483, 224);
-    ofVertex(477, 243);
-    ofVertex(456, 237);
-    ofVertex(462, 217);
-    ofEndShape();
+    ofVec2f pupil[4] = { ofVec2f(462, 217), ofVec2f(483, 224), ofVec2f(477, 243), ofVec2f(456, 237) };
+    drawFramedPolygon(pupil, 4, lineWidth, ofColor::black);
 }
