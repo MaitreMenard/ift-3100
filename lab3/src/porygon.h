@@ -20,5 +20,5 @@ private:
 
 public:
     Porygon();
-    void draw();
+    void draw(float xOffset, float yOffset, float zOffset);
 };

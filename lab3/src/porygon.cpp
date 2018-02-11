@@ -10,13 +10,18 @@ Porygon::Porygon()
     darkCyan = ofColor(83, 141, 144);
 }
 
-void Porygon::draw()
+void Porygon::draw(float xOffset, float yOffset, float zOffset)
 {
+    ofPushMatrix();
+    ofTranslate(xOffset, yOffset, zOffset);
+
     drawTail();
     drawLeftLeg();
     drawBody();
     drawRightLeg();
     drawHead();
+
+    ofPopMatrix();
 }
 
 void Porygon::drawTail()
