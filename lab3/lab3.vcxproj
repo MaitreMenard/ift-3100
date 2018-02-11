@@ -171,6 +171,7 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\battletag.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\polygon.cpp" />
@@ -178,6 +179,7 @@
     <ClCompile Include="src\renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\battletag.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\polygon.h" />
     <ClInclude Include="src\porygon.h" />

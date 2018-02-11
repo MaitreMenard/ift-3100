@@ -16,6 +16,9 @@
     <ClCompile Include="src\polygon.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\battletag.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -33,6 +36,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\polygon.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\battletag.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

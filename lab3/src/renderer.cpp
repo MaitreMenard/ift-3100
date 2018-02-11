@@ -20,10 +20,7 @@ void Renderer::draw()
 {
     ofClear(255);
 
-    porygon.draw(10.0f, 10.0f, 0.0f);
+    porygon.draw(10, 10, 0);
 
-    ofNoFill();
-    ofSetColor(ofColor::black);
-    ofSetLineWidth(5);
-    ofDrawRectangle(800, 30, 375, 200);
+    battleTag.draw(800, 30, 0);
 }
