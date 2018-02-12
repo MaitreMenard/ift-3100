@@ -7,9 +7,10 @@
 class Renderer
 {
 private:
-    ofTrueTypeFont ironFont;
     Porygon porygon;
     BattleTag battleTag;
+    ofTrueTypeFont regularFont;
+    ofTrueTypeFont unownFont;
 
 public:
     Renderer();
