@@ -6,14 +6,13 @@ BattleTag::BattleTag()
     height = 200;
     borderWidth = 5;
 
-    nameFontSize = 32;
-    nameFont.load("fonts/PokemonGB.ttf", nameFontSize);
+    largeFontSize = 32;
+    mediumFontSize = 24;
+    smallFontSize = 20;
 
-    numberFontSize = 24;
-    numberFont.load("fonts/PokemonGB.ttf", numberFontSize);
-
-    hpFontSize = 20;
-    hpFont.load("fonts/PokemonGB.ttf", hpFontSize);
+    largeFont.load("fonts/PokemonGB.ttf", largeFontSize);
+    mediumFont.load("fonts/PokemonGB.ttf", mediumFontSize);
+    smallFont.load("fonts/PokemonGB.ttf", smallFontSize);
 
     hpGreen = ofColor(18, 239, 14);
 }
@@ -23,23 +22,38 @@ void BattleTag::draw(float xOffset, float yOffset, float zOffset)
     ofPushMatrix();
     ofTranslate(xOffset, yOffset, zOffset);
 
+    drawBorder();
+    writeText();
+    drawHpBar();
+
+    ofPopMatrix();
+}
+
+void BattleTag::drawBorder()
+{
     ofNoFill();
     ofSetColor(ofColor::black);
     ofSetLineWidth(borderWidth);
     ofDrawRectangle(0, 0, 0, width, height);
+}
 
+void BattleTag::writeText()
+{
     int nameOffset = 5 + borderWidth;
-    nameFont.drawString("Porygon", nameOffset, nameOffset + nameFontSize + 5);
+    largeFont.drawString("Porygon", nameOffset, nameOffset + largeFontSize + 5);
+    mediumFont.drawString(":L20", width / 2, nameOffset + largeFontSize + 20 + mediumFontSize);
+    smallFont.drawString("HP:", nameOffset, height / 2 + smallFontSize + 5);
+    largeFont.drawString("60/60", 120, 180);
+}
 
-    numberFont.drawString(":L20", width / 2, nameOffset + nameFontSize + 20 + numberFontSize);
+void BattleTag::drawHpBar()
+{
+    float hpBarLength = 11 * width / 16;
+    float hpBarHeight = 0;
+    float hpBarXOffset = 100;
+    float hpBarYOffset = height / 2 + 5;
 
-    hpFont.drawString("HP:", nameOffset, height / 2 + hpFontSize + 5);
-
-    ofVec2f hpBar[4] = { ofVec2f(100, height / 2 + 5), ofVec2f(100 + 11 * width / 16, height / 2 + 5),
-        ofVec2f(100 + 11 * width / 16, height / 2 + hpFontSize + 5), ofVec2f(100, height / 2 + hpFontSize + 5) };
-    Polygon::drawFramedPolygon(hpBar, 4, 2, hpGreen);
-
-    nameFont.drawString("60/60", 120, 180);
-
-    ofPopMatrix();
+    ofVec2f hpBarVertices[4] = { ofVec2f(hpBarXOffset, hpBarYOffset), ofVec2f(hpBarXOffset + hpBarLength, hpBarYOffset),
+        ofVec2f(hpBarXOffset + hpBarLength, hpBarYOffset + smallFontSize), ofVec2f(hpBarXOffset, hpBarYOffset + smallFontSize) };
+    Polygon::drawFramedPolygon(hpBarVertices, 4, 2, hpGreen);
 }

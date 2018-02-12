@@ -10,16 +10,19 @@ private:
     float height;
     int borderWidth;
 
-    int nameFontSize;
-    ofTrueTypeFont nameFont;
+    int largeFontSize;
+    int mediumFontSize;
+    int smallFontSize;
 
-    int numberFontSize;
-    ofTrueTypeFont numberFont;
-
-    int hpFontSize;
-    ofTrueTypeFont hpFont;
+    ofTrueTypeFont largeFont;
+    ofTrueTypeFont mediumFont;
+    ofTrueTypeFont smallFont;
 
     ofColor hpGreen;
+
+    void drawBorder();
+    void writeText();
+    void drawHpBar();
 
 public:
     BattleTag();
