@@ -171,11 +171,13 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\LSystem.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\LSystem.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\renderer.h" />
   </ItemGroup>

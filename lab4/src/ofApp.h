@@ -2,13 +2,16 @@
 
 #include "ofMain.h"
 #include "renderer.h"
+#include "LSystem.h"
 
 class ofApp : public ofBaseApp
 {
 private:
     Renderer renderer;
+    LSystem lSystem;
 
 public:
+    ofApp();
     void setup();
     void update();
     void draw();

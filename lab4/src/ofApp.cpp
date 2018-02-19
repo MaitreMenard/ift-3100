@@ -1,5 +1,12 @@
 #include "ofApp.h"
 
+ofApp::ofApp() : lSystem("X")
+{
+    lSystem.addRule('F', "FF");
+    lSystem.addRule('X', "F-[[X]+X]+F[+FX]-X");
+    renderer.setSequence(lSystem.getCurrentSequence());
+}
+
 void ofApp::setup()
 {
     renderer.setup();
@@ -22,7 +29,11 @@ void ofApp::keyPressed(int key)
 
 void ofApp::keyReleased(int key)
 {
-
+    if (key == 32)  //space bar
+    {
+        lSystem.iterate();
+        renderer.setSequence(lSystem.getCurrentSequence());
+    }
 }
 
 void ofApp::mouseMoved(int x, int y)
