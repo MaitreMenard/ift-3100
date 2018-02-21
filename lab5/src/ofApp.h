@@ -6,6 +6,9 @@ class ofApp : public ofBaseApp
 {
 private:
     Renderer renderer;
+    bool shiftIsPressed;
+
+    void screenShot();
 
 public:
     void setup();
