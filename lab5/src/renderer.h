@@ -1,6 +1,7 @@
 #pragma once
 #include "ofMain.h"
 #include "ofxAssimpModelLoader.h"
+#include "cube.h"
 #include "transform.h"
 
 #define NB_STARS 100
@@ -22,7 +23,7 @@ private:
 
     Star stars[NB_STARS];
     ofxAssimpModelLoader model;
-    ofMesh cube;
+    Cube cube;
 
     void configureLighting();
     void placeStars();

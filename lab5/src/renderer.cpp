@@ -3,77 +3,10 @@
 void Renderer::setup()
 {
     ofSetFrameRate(60);
-    ofEnableLighting();
+
     configureLighting();
 
     model.loadModel("millenium-falcon.obj");
-
-    cube.setMode(OF_PRIMITIVE_TRIANGLES);
-    cube.addVertex(ofPoint(-50, -50, 50));
-    cube.addVertex(ofPoint(50, -50, 50));
-    cube.addVertex(ofPoint(-50, 50, 50));
-    cube.addVertex(ofPoint(50, 50, 50));
-    cube.addVertex(ofPoint(-50, -50, -50));
-    cube.addVertex(ofPoint(50, -50, -50));
-    cube.addVertex(ofPoint(-50, 50, -50));
-    cube.addVertex(ofPoint(50, 50, -50));
-
-    cube.addIndex(0);
-    cube.addIndex(1);
-    cube.addIndex(2);
-
-    cube.addIndex(1);
-    cube.addIndex(2);
-    cube.addIndex(3);
-
-    cube.addIndex(4);
-    cube.addIndex(5);
-    cube.addIndex(6);
-
-    cube.addIndex(5);
-    cube.addIndex(6);
-    cube.addIndex(7);
-
-    cube.addIndex(0);
-    cube.addIndex(2);
-    cube.addIndex(4);
-
-    cube.addIndex(2);
-    cube.addIndex(4);
-    cube.addIndex(6);
-
-    cube.addIndex(2);
-    cube.addIndex(3);
-    cube.addIndex(6);
-
-    cube.addIndex(3);
-    cube.addIndex(6);
-    cube.addIndex(7);
-
-    cube.addIndex(1);
-    cube.addIndex(3);
-    cube.addIndex(5);
-
-    cube.addIndex(3);
-    cube.addIndex(5);
-    cube.addIndex(7);
-
-    cube.addIndex(0);
-    cube.addIndex(1);
-    cube.addIndex(4);
-
-    cube.addIndex(1);
-    cube.addIndex(4);
-    cube.addIndex(5);
-
-    cube.addColor(ofColor(0, 0, 0));
-    cube.addColor(ofColor(255, 0, 0));
-    cube.addColor(ofColor(0, 255, 0));
-    cube.addColor(ofColor(255, 255, 0));
-    cube.addColor(ofColor(0, 0, 255));
-    cube.addColor(ofColor(255, 0, 255));
-    cube.addColor(ofColor(0, 255, 255));
-    cube.addColor(ofColor(255, 255, 255));
 
     placeStars();
 }
@@ -119,6 +52,8 @@ void Renderer::screenShot(const string fileName)
 
 void Renderer::configureLighting()
 {
+    ofEnableLighting();
+
     light.setAmbientColor(ofColor(100, 100, 100));
     light.setDiffuseColor(ofColor(255, 255, 255));
     light.setDirectional();

@@ -31,6 +31,9 @@
     <ClCompile Include="src\transform.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\cube.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -195,6 +198,9 @@
       <Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
     </ClInclude>
     <ClInclude Include="src\transform.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cube.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
