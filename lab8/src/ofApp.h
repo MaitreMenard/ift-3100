@@ -1,8 +1,12 @@
 #pragma once
 #include "ofMain.h"
+#include "ofxAssimpModelLoader.h"
 
 class ofApp : public ofBaseApp
 {
+private:
+    ofCamera camera;
+    ofxAssimpModelLoader corridor;
 
 public:
     void setup();
