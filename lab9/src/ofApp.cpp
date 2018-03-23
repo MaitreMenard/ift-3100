@@ -8,11 +8,21 @@ void ofApp::setup()
     //ofEnableAlphaBlending();
 
     camera.setNearClip(0.1f);
-    camera.setPosition(-147, 45, 210);
+    camera.setPosition(initialCameraPosition);
+    camera.setFov(initialFOV);
 
     corridor = ofxAssimpModelLoader();
     corridor.loadModel("corridor/REO_RPD_corridor.obj");
     corridor.setRotation(0, 180, 0, 0, 1);
+
+    box.set(10, 30, 10);
+    box.setPosition(initialCameraPosition + ofVec3f(0, -30, -120));
+    box.rotate(45, ofVec3f(0, 1, 0));
+
+    box.setSideColor(1, ofColor::red);
+    box.setSideColor(2, ofColor::yellow);
+    box.setSideColor(5, ofColor::green);
+    box.setSideColor(6, ofColor::blue);
 }
 
 void ofApp::update()
@@ -26,6 +36,7 @@ void ofApp::draw()
 
     camera.begin();
     corridor.draw(OF_MESH_FILL);
+    box.draw();
     camera.end();
 }
 
@@ -62,6 +73,15 @@ void ofApp::keyPressed(int key)
         break;
     case 'd':
         camera.truck(1);
+        break;
+    case 'r':
+        camera.setPosition(initialCameraPosition);
+        camera.setOrientation(ofVec3f(0));
+        camera.setFov(initialFOV);
+        break;
+    case ' ':
+        camera.dolly(-dollyZoomSpeed);
+        camera.setFov(camera.getFov() + dollyZoomSpeed);
         break;
     default:
         break;

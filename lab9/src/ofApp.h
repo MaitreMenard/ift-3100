@@ -7,6 +7,11 @@ class ofApp : public ofBaseApp
 private:
     ofCamera camera;
     ofxAssimpModelLoader corridor;
+    ofBoxPrimitive box;
+
+    const ofVec3f initialCameraPosition = ofVec3f(-147, 45, 210);
+    const float initialFOV = 60;
+    const float dollyZoomSpeed = 0.3;
 
 public:
     void setup();
