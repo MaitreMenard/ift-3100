@@ -66,7 +66,6 @@ void ofApp::keyPressed(int key)
     default:
         break;
     }
-    ofLog() << camera.getPosition();
 }
 
 void ofApp::keyReleased(int key)
