@@ -10,6 +10,7 @@ private:
     ofBoxPrimitive box;
 
     const ofVec3f initialCameraPosition = ofVec3f(-147, 45, 210);
+    const ofVec3f boxPositionOffset = ofVec3f(0, -30, -120);
     const float initialFOV = 60;
     const float dollyZoomSpeed = 0.3;
 

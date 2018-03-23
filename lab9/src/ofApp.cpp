@@ -4,8 +4,8 @@ void ofApp::setup()
 {
     ofSetFrameRate(60);
     ofEnableDepthTest();
-    //ofDisableArbTex();
-    //ofEnableAlphaBlending();
+    ofDisableArbTex();
+    ofEnableAlphaBlending();
 
     camera.setNearClip(0.1f);
     camera.setPosition(initialCameraPosition);
@@ -16,7 +16,7 @@ void ofApp::setup()
     corridor.setRotation(0, 180, 0, 0, 1);
 
     box.set(10, 30, 10);
-    box.setPosition(initialCameraPosition + ofVec3f(0, -30, -120));
+    box.setPosition(initialCameraPosition + boxPositionOffset);
     box.rotate(45, ofVec3f(0, 1, 0));
 
     box.setSideColor(1, ofColor::red);
