@@ -3,6 +3,22 @@
 
 class ofApp : public ofBaseApp
 {
+private:
+    const ofVec3f initialCameraPosition = ofVec3f(0, 1, 5);
+
+    ofCamera camera;
+    ofBoxPrimitive floor;
+    ofSpherePrimitive sphere;
+
+    ofLight light;
+    ofLight spotLight;
+    ofLight spotLight2;
+
+    ofMaterial sphereMaterial;
+
+    void setupFloor();
+    void setupSphere();
+    void takeScreenShot();
 
 public:
     void setup();
