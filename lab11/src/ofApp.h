@@ -3,7 +3,6 @@
 
 class ofApp : public ofBaseApp
 {
-
 public:
     void setup();
     void update();
@@ -20,4 +19,18 @@ public:
     void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
+
+private:
+    const ofVec3f initialCameraPosition = ofVec3f(0, 0, 10);
+
+    ofCamera camera;
+    ofLight pointLight;
+
+    ofBoxPrimitive floor;
+    ofBoxPrimitive leftWall;
+    ofBoxPrimitive backWall;
+    ofBoxPrimitive rightWall;
+    ofBoxPrimitive ceiling;
+
+    void takeScreenShot();
 };
