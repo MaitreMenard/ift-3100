@@ -1,5 +1,6 @@
 #pragma once
 #include "ofMain.h"
+#include "ofxAssimpModelLoader.h"
 
 class ofApp : public ofBaseApp
 {
@@ -31,6 +32,9 @@ private:
     ofBoxPrimitive backWall;
     ofBoxPrimitive rightWall;
     ofBoxPrimitive ceiling;
+
+    ofxAssimpModelLoader milleniumFalcon;
+    ofxAssimpModelLoader xWing;
 
     void takeScreenShot();
 };

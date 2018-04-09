@@ -43,6 +43,16 @@ void ofApp::setup()
     ceiling.setResolution(100);
     ceiling.setPosition(0, 10, 0);
     ceiling.setSideColor(leftWall.SIDE_BOTTOM, ofColor::white);
+
+    milleniumFalcon.loadModel("falcon/millenium-falcon.obj");
+    milleniumFalcon.setPosition(-0.5, -1, 10.0);
+    milleniumFalcon.setRotation(0, 180, 0, 0, 1);
+    milleniumFalcon.setScale(0.002, 0.002, 0.002);
+
+    xWing.loadModel("xwing/x-wing.obj");
+    xWing.setPosition(-2.5, -1, 10.0);
+    xWing.setRotation(0, 180, 0, 0, 1);
+    xWing.setScale(0.002, 0.002, 0.002);
 }
 
 void ofApp::update()
@@ -62,6 +72,9 @@ void ofApp::draw()
     backWall.draw();
     rightWall.draw();
     ceiling.draw();
+
+    milleniumFalcon.draw(OF_MESH_FILL);
+    xWing.draw(OF_MESH_FILL);
 
     pointLight.disable();
     camera.end();
