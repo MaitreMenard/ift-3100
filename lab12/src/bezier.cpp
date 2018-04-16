@@ -8,10 +8,11 @@ void Bezier::setup()
         curvePoints.addVertex(ofPoint());
     }
 
-    controlPoints.push_back(ofPoint(128, 614));
-    controlPoints.push_back(ofPoint(256, 256));
-    controlPoints.push_back(ofPoint(768, 256));
-    controlPoints.push_back(ofPoint(896, 614));
+    controlPoints.push_back(ofPoint(114, 614));
+    controlPoints.push_back(ofPoint(28, 256));
+    controlPoints.push_back(ofPoint(540, 256));
+    controlPoints.push_back(ofPoint(740, 614));
+    controlPoints.push_back(ofPoint(939, 337));
 
     update();
 }
@@ -39,7 +40,7 @@ void Bezier::draw()
 {
     ofSetColor(0, 255, 0);
     ofSetLineWidth(3);
-    //curvePoints.draw();
+    curvePoints.draw();
 
     ofSetColor(255, 0, 0);
     for (ofPoint controlPoint : controlPoints)
