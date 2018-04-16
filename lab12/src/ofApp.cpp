@@ -2,17 +2,21 @@
 
 void ofApp::setup()
 {
+    ofSetFrameRate(60);
 
+    bezier.setup();
 }
 
 void ofApp::update()
 {
-
+    //bezier.update();
 }
 
 void ofApp::draw()
 {
+    ofClear(0);
 
+    bezier.draw();
 }
 
 void ofApp::keyPressed(int key)

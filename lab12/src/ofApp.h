@@ -1,9 +1,9 @@
 #pragma once
 #include "ofMain.h"
+#include "bezier.h"
 
 class ofApp : public ofBaseApp
 {
-
 public:
     void setup();
     void update();
@@ -20,4 +20,7 @@ public:
     void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
+
+private:
+    Bezier bezier;
 };
