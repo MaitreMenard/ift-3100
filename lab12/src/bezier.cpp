@@ -3,23 +3,23 @@
 void Bezier::setup()
 {
     resolution = 100;
-    for (int i = 0; i < resolution; i++)
+    for (int i = 0; i <= resolution; i++)
     {
         curvePoints.addVertex(ofPoint());
     }
 
     controlPoints.push_back(ofPoint(114, 614));
-    controlPoints.push_back(ofPoint(28, 256));
-    controlPoints.push_back(ofPoint(540, 256));
-    controlPoints.push_back(ofPoint(740, 614));
-    controlPoints.push_back(ofPoint(939, 337));
+    controlPoints.push_back(ofPoint(28, 200));
+    controlPoints.push_back(ofPoint(400, 700));
+    controlPoints.push_back(ofPoint(900, 614));
+    controlPoints.push_back(ofPoint(840, 300));
 
     update();
 }
 
 void Bezier::update()
 {
-    for (int i = 0; i < resolution; i++)
+    for (int i = 0; i <= resolution; i++)
     {
         float t = i / (float)resolution;
         /*curvePoints[i] = std::powf(1 - t, 3) * controlPoints[0] + 3 * t * std::powf(1 - t, 2) * controlPoints[1]
