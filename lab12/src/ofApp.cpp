@@ -26,7 +26,21 @@ void ofApp::keyPressed(int key)
 
 void ofApp::keyReleased(int key)
 {
+    switch (key)
+    {
+    case ' ':
+        takeScreenShot();
+        ofLog() << "Screenshot taken";
+    default:
+        break;
+    }
+}
 
+void ofApp::takeScreenShot()
+{
+    ofImage image;
+    image.grabScreen(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
+    image.save("../lab12.png");
 }
 
 void ofApp::mouseMoved(int x, int y)
