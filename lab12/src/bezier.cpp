@@ -2,7 +2,6 @@
 
 void Bezier::setup()
 {
-    resolution = 100;
     for (int i = 0; i <= resolution; i++)
     {
         curvePoints.addVertex(ofPoint());
@@ -14,19 +13,17 @@ void Bezier::setup()
     controlPoints.push_back(ofPoint(900, 614));
     controlPoints.push_back(ofPoint(840, 300));
 
-    update();
+    updateCurve();
 }
 
-void Bezier::update()
+void Bezier::updateCurve()
 {
     for (int i = 0; i <= resolution; i++)
     {
         float t = i / (float)resolution;
-        /*curvePoints[i] = std::powf(1 - t, 3) * controlPoints[0] + 3 * t * std::powf(1 - t, 2) * controlPoints[1]
-            + 3 * std::powf(t, 2) * (1 - t) * controlPoints[2] + std::powf(t, 3) * controlPoints[3];*/
-
         ofPoint point = ofPoint(0, 0, 0);
         int n = controlPoints.size() - 1;
+
         for (int k = 0; k <= n; k++)
         {
             point += combinations(n, k) * std::powf(t, k) * std::powf(1 - t, n - k) * controlPoints[k];
@@ -34,24 +31,6 @@ void Bezier::update()
 
         curvePoints[i] = point;
     }
-}
-
-void Bezier::draw()
-{
-    ofSetColor(0, 255, 0);
-    ofSetLineWidth(3);
-    curvePoints.draw();
-
-    ofSetColor(255, 0, 0);
-    for (ofPoint controlPoint : controlPoints)
-    {
-        ofDrawCircle(controlPoint, 8);
-    }
-}
-
-Bezier::~Bezier()
-{
-    controlPoints.clear();
 }
 
 int Bezier::combinations(int n, int k)
@@ -71,4 +50,31 @@ int Bezier::combinations(int n, int k)
     }
 
     return result;
+}
+
+void Bezier::draw()
+{
+    drawCurve();
+    drawControlPoints();
+}
+
+void Bezier::drawCurve()
+{
+    ofSetColor(curveColor);
+    ofSetLineWidth(curveWidth);
+    curvePoints.draw();
+}
+
+void Bezier::drawControlPoints()
+{
+    ofSetColor(controlPointsColor);
+    for (ofPoint controlPoint : controlPoints)
+    {
+        ofDrawCircle(controlPoint, controlPointsRadius);
+    }
+}
+
+Bezier::~Bezier()
+{
+    controlPoints.clear();
 }
